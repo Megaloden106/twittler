@@ -48,6 +48,18 @@ table {
 
 /*
   ========================================
+  For refreshes
+  ========================================
+*/
+
+.unselectable {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+/*
+  ========================================
   Grid
   ========================================
 */
@@ -82,12 +94,13 @@ table {
   font-weight: 700;
   padding: 15px 0;
 }
-.header a {
+#home {
   color: rgb(102, 117, 127);
   text-decoration: none;
 }
-.header a:hover {
+#home:hover {
   color: rgb(29, 161, 242);
+  cursor: pointer;
 }
 .logo {
   height: 18px;
@@ -139,14 +152,19 @@ table {
   display: inline-block;
   margin: 0 10px;
 }
-#update a{
+#update {
   color: rgb(102, 117, 127);
   text-decoration: none;
 }
-#update a:hover{
+#update:hover,
+#tweet-user:hover {
   color: rgb(29, 161, 242);
   text-decoration: underline;
   cursor: pointer;
+}
+#tweet-user {
+  text-decoration: underline;
+  color: blue;
 }
 
 
@@ -181,3 +199,5 @@ body {
 .header {
   background: white;
 }
+
+
