@@ -1,4 +1,183 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 2. v2.0 | 20110126
+  License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*
+  ========================================
+  Grid
+  ========================================
+*/
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.container,
+.grid {
+  margin: 0 auto;
+  width: 1220px;
+}
+.container {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+
+/*
+  ========================================
+  Header
+  ========================================
+*/
+.nav {
+  text-align: left;
+  font-family: cursive;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 15px 0;
+}
+.header a {
+  color: rgb(102, 117, 127);
+  text-decoration: none;
+}
+.header a:hover {
+  color: rgb(29, 161, 242);
+}
+.logo {
+  height: 18px;
+  width: 18px;
+}
+
+
+/*
+  ========================================
+  Banner
+  ========================================
+*/
 .banner { 
-  height: 500px;
+  height: 400px;
   width: 100%; 
+}
+
+
+/*
+  ========================================
+  Tweets
+  ========================================
+*/
+.stream { 
+  width: 85%;
+  display: inline-block;
+  vertical-align: top;
+  padding: 15px 15px 0 15px;
+  text-align: left;
+}
+.tweets div,
+.tweets-title {
+  border-style: inset;
+  border-color: gray;
+  border-bottom-width: 2px
+}
+.tweets div {
+  padding-bottom: 25px;
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tweets-title {
+  color: rgb(102, 117, 127);
+}
+.tweets-title li {
+  display: inline-block;
+  margin: 0 10px;
+}
+#update a{
+  color: rgb(102, 117, 127);
+  text-decoration: none;
+}
+#update a:hover{
+  color: rgb(29, 161, 242);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+/*
+  ========================================
+  User
+  ========================================
+*/
+.user { 
+  width: 15%;
+  display: inline-block;
+  vertical-align: top;
+  padding: 30px 15px 0 15px;
+  text-align: left;
+  font-family: cursive;
+  font-size: 14px;
+}
+
+
+/*
+  ========================================
+  Background
+  ========================================
+*/
+
+body {
+  background: rgb(230, 236, 240);
+}
+.stream {
+  background: white;
+}
+.header {
+  background: white;
 }

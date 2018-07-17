@@ -1,31 +1,82 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="assets/stylesheets/main.css">
+    <link rel='stylesheet' href='assets/stylesheets/main.css'>
     <title>SSP31 Twittler</title>
-    <script src="jquery.js"></script>
-    <script src="data_generator.js"></script>
-    <script src="moment.js"></script>
+    <script src='jquery.js'></script>
+    <script src='data_generator.js'></script>
+    <script src='moment.js'></script>
   </head>
   <body>
-    <header>
-      <img class='banner' src='assets\images\banner.jpg' alt='banner' />
-    </header>
-
     <script>
 
       $(document).ready(function(){
-        var $body = $('body');
+
+        var $stream = $('.tweets');
         // $body.html(''); -clears html
         for (var i = streams.home.length - 1; i >= 0; i--) {
           var tweet = streams.home[i];
           var $tweet = $('<div></div>');
           var time = moment(tweet.created_at).fromNow();  
-          $tweet.text('@' + tweet.user + ' - ' + time + ': ' + tweet.message);
-          $tweet.appendTo($body);
+          $tweet.text('@' + tweet.user + ' - ' + time + '\n\n' + tweet.message);
+          $tweet.html($tweet.html().replace(/\n/g,'<br/>'));
+          $tweet.appendTo($stream);
         }
+
+        var $username = $('.user');
+        var $user = $('<div></div>');
+        var user_descript = 'new user to twittler';
+        $user.text('@user1'+ '\n\n' + user_descript);
+        $user.html($user.html().replace(/\n/g,'<br/>'));
+        $user.appendTo($username);
+
+        $('#update').click(function() {
+          $stream.html('');
+          for (var i = streams.home.length - 1; i >= 0; i--) {
+            var tweet = streams.home[i];
+            var $tweet = $('<div></div>');
+            var time = moment(tweet.created_at).fromNow();  
+            $tweet.text('@' + tweet.user + ' - ' + time + '\n\n' + tweet.message);
+            $tweet.html($tweet.html().replace(/\n/g,'<br/>'));
+            $tweet.appendTo($stream);
+          }
+        });
+
       });
 
     </script>
+
+
+    <header class='header container'>
+      <nav class='nav'>
+        <ul>
+          <li><a href='index.html'><img class='logo' src='assets\images\logo.png' alt='logo' />   Home</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <img class='banner' src='assets\images\banner.jpg' alt='banner' />
+
+    <section class='container'><!-- 
+
+      --><div class='grid user'>
+      </div><!-- 
+
+       --><div class='grid stream'>
+
+        <nav class='nav tweets-title'>
+          <ul>
+            <li> Tweets </li>
+            <li id='update'><a> Update </a></li>
+          </ul>
+        </nav>
+
+        <div class='tweets'>
+        </div>
+
+      </div>
+
+    </section>
+
   </body>
 </html>
