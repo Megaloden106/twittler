@@ -92,7 +92,13 @@ table {
   font-family: cursive;
   font-size: 18px;
   font-weight: 700;
-  padding: 15px 0;
+  padding: 15px 0 20px 0;
+}
+.nav li {
+  display: inline-block;
+}
+.nav li:last-child {
+  float: right;
 }
 #home {
   color: rgb(102, 117, 127);
@@ -201,3 +207,64 @@ body {
 }
 
 
+/*
+  ========================================
+  Tweet
+  ========================================
+*/
+.tweet-btn {
+  text-decoration: none;
+  display: block;
+  margin: auto;
+  background-color: rgb(74, 179, 244);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 25px;
+}
+.tweet-btn:hover {
+  background-color: rgb(29, 161, 242);
+}
+
+/*
+  ========================================
+  Tweet comment
+  ========================================
+*/
+#comment_form input, #comment_form textarea {
+  border: 4px solid rgba(0,0,0,0.1);
+  padding: 8px 10px;
+	
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+	
+  outline: 0;
+}
+
+#comment_form textarea {
+  width: 100%;
+  height: 100px;
+  margin-top: 25px;
+}
+
+#comment_form input[type="submit"] {
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  margin-top: 5px;
+  background-color: rgb(74, 179, 244);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 25px;
+  float: right;
+}
+
+#comment_form input[type="submit"]:hover {
+  background-color: rgb(29, 161, 242);
+}
+
+#comment_form div {
+  margin-bottom: 25px;
+}

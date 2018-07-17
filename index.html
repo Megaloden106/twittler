@@ -22,8 +22,6 @@
               $tweet.appendTo($stream);
             }
           }
-          user(id);
-          update(id);
         } else {
           for (var i = streams.home.length - 1; i >= 0; i--) {
             var tweet = streams.home[i];
@@ -32,9 +30,8 @@
             $tweet.html('<a id=\'tweet-user\' class=\'unselectable\' onclick=\'tweetUser(' + i + ')\'>@' + tweet.user + '</a> - ' + time + '<br/><br/>' + tweet.message);
             $tweet.appendTo($stream);
           }
-          user();
-          update();
         }
+        user(id);
       }
 
       function user(id) {
@@ -51,16 +48,25 @@
         $user.appendTo($username);
       }
 
-      function update(id) {
-        var $list = $('#update');
-        $list.html('');
-        var $update = $('<li></li>');
-        if (id !== undefined) {
-          $update.html('<a href=javascript:tweetUser(' + id + ')> Update </a>');
-        } else {
-          $update.html('<a href=javascript:tweetUser()> Update </a>');
-        }
-        $update.appendTo($list);
+      function writeComment() {
+        var message = document.getElementById('comment').value;
+        writeTweet(message);
+        var $comment = $('#comment_form');
+        $comment.html('');
+        tweetUser();
+      }
+
+      function tweet() {
+        tweetUser();
+        var $comment = $('#comment_form');
+        var $form = $('<div></div>');
+        $form.html('<textarea rows=\'10\' id=\'comment\' placeholder="What\'s happening?" ></textarea> <input type=\'submit\' value=\'Tweet\' onclick=\'writeComment()\'>')
+        $form.appendTo($comment);
+      }
+
+      function reload() {
+        tweetUser();
+        setTimeout(reload, 1000);
       }
 
     </script>
@@ -69,10 +75,10 @@
     <script>
 
       $(document).ready(function(){
-
+        visitor = 'user1';
+        streams.users.user1 = [];
         tweetUser();
-
-
+        reload();
       });
 
     </script>
@@ -82,6 +88,7 @@
       <nav class='nav'>
         <ul>
           <li><a id='home' class='unselectable' onclick='tweetUser()'><img class='logo' src='assets\images\logo.png' alt='logo' />   Home</a></li>
+          <li><a href=javascript:tweet() class='tweet-btn'> Tweet </a></li>
         </ul>
       </nav>
     </header>
@@ -98,8 +105,12 @@
         <nav class='nav tweets-title'>
           <ul>
             <li> Tweets </li>
-            <li id='update'></li>
+            <li></li>
           </ul>
+
+          <div id='comment_form'>            
+          </div>
+
         </nav>
 
         <div class='tweets'>
