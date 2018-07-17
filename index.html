@@ -22,14 +22,8 @@
               $tweet.appendTo($stream);
             }
           }
-
-          var $username = $('.user');
-          $username.html('');
-          var $user = $('<div></div>');
-          var user_descript = '';
-          $user.html('@' + streams.home[id].user + '<br/><br/>' + user_descript);
-          $user.appendTo($username);
-
+          user(id);
+          update(id);
         } else {
           for (var i = streams.home.length - 1; i >= 0; i--) {
             var tweet = streams.home[i];
@@ -37,17 +31,36 @@
             var time = moment(tweet.created_at).fromNow();
             $tweet.html('<a id=\'tweet-user\' class=\'unselectable\' onclick=\'tweetUser(' + i + ')\'>@' + tweet.user + '</a> - ' + time + '<br/><br/>' + tweet.message);
             $tweet.appendTo($stream);
-
           }
-
-          var $username = $('.user');
-          $username.html('');
-          var $user = $('<div></div>');
-          var user_descript = 'new user to twittler';
-          $user.html('@user1'+ '<br/><br/>' + user_descript);
-          $user.appendTo($username);
-
+          user();
+          update();
         }
+      }
+
+      function user(id) {
+        var $username = $('.user');
+        $username.html('');
+        var $user = $('<div></div>');
+        var user_descript = '';
+        if (id !== undefined) {
+          $user.html('@' + streams.home[id].user + '<br/><br/>' + user_descript);
+        } else {
+          user_descript = 'new user to twittler';
+          $user.html('@user1'+ '<br/><br/>' + user_descript);
+        }
+        $user.appendTo($username);
+      }
+
+      function update(id) {
+        var $list = $('#update');
+        $list.html('');
+        var $update = $('<li></li>');
+        if (id !== undefined) {
+          $update.html('<a href=javascript:tweetUser(' + id + ')> Update </a>');
+        } else {
+          $update.html('<a href=javascript:tweetUser()> Update </a>');
+        }
+        $update.appendTo($list);
       }
 
     </script>
@@ -85,7 +98,7 @@
         <nav class='nav tweets-title'>
           <ul>
             <li> Tweets </li>
-            <li id='update' class='unselectable' onclick='tweetUser()'><a> Update </a></li>
+            <li id='update'></li>
           </ul>
         </nav>
 

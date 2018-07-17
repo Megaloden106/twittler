@@ -152,11 +152,11 @@ table {
   display: inline-block;
   margin: 0 10px;
 }
-#update {
+#update a {
   color: rgb(102, 117, 127);
   text-decoration: none;
 }
-#update:hover,
+#update:hover a,
 #tweet-user:hover {
   color: rgb(29, 161, 242);
   text-decoration: underline;
