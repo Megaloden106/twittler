@@ -9,7 +9,10 @@
 
     <script>
 
+      var ID;
+
       function tweetUser(id) {
+        ID = id;
         var $stream = $('.tweets');
         $stream.html('');
         if (id !== undefined) {
@@ -65,8 +68,8 @@
       }
 
       function reload() {
-        tweetUser();
-        setTimeout(reload, 1000);
+        tweetUser(ID);
+        setTimeout(reload, 1000, ID);
       }
 
     </script>
